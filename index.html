@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC GeoLLM - Tree Query Enhanced</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <!-- Leaflet MarkerCluster CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+             <div class="logo-container">
+                 <i class="fas fa-tree header-icon"></i>
+                 <div>
+                     <h1>NYC Tree Explorer</h1>
+                     <p>Enhanced Query & Visualization (2005 Census)</p>
+                 </div>
+             </div>
+        </header>
+
+        <div class="main-content">
+            <div class="dashboard-container">
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="floating-search-container">
+                        <div class="search-bar">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="query-input" placeholder="Ask about NYC trees...">
+                            <button id="query-button" title="Search Trees">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div id="status-message">Enter query or click example tags.</div>
+                        <div class="search-examples">
+                            <span class="example-tag" data-query="Show large pin oak trees in Manhattan">Manhattan pin oaks</span>
+                            <span class="example-tag" data-query="Find Good trees in Brooklyn">Healthy Brooklyn trees</span>
+                            <span class="example-tag" data-query="Show trees over 25 inches diameter">Large trees</span>
+                            <span class="example-tag" data-query="Trees with sidewalk cracks">Sidewalk Cracks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="panel-header">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Query Stats</h3>
+                    </div>
+                    <div id="tree-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-hashtag"></i></div>
+                            <div class="stat-info">
+                                <h4>Displayed</h4>
+                                <p id="tree-count">--</p>
+                            </div>
+                        </div>
+                         <div class="stat-card">
+                             <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+                             <div class="stat-info">
+                                 <h4>Species</h4>
+                                 <p id="species-count">--</p>
+                             </div>
+                         </div>
+                         <div class="stat-card">
+                             <div class="stat-icon"><i class="fas fa-ruler-combined"></i></div>
+                             <div class="stat-info">
+                                 <h4>Avg. DBH</h4>
+                                 <p id="avg-diameter">--</p>
+                             </div>
+                         </div>
+                    </div>
+                    <!-- Status Breakdown -->
+                    <div id="status-chart-container">
+                         <h4>Status Breakdown</h4>
+                         <div id="status-bars"></div> <!-- ID used by JS -->
+                    </div>
+                    <!-- Species Chart -->
+                    <div id="species-chart-container">
+                        <h4>Top Species</h4>
+                        <div id="species-bars"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <p>Built with <i class="fas fa-heart"></i> | GeoLLM Concept</p>
+        </footer>
+    </div> <!-- /app-container -->
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <!-- Leaflet MarkerCluster JavaScript -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
