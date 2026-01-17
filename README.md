@@ -93,5 +93,3 @@ The application uses the `nyc_tree_census_2005.csv` dataset, which contains:
 - For best results, use the latest version of Chrome or Firefox.
 
 ---
-
-Built with ❤️ for urban data exploration.
