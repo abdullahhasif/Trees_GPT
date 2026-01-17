@@ -1,0 +1,8 @@
+Flask
+google-generativeai
+geopandas
+pandas
+numpy
+Flask-CORS
+python-dotenv  # For loading the .env file
+requests
